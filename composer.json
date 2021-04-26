@@ -1,0 +1,16 @@
+{
+    "name": "elrod/user-activity",
+    "description": "registra las actividades de los usuarios de su aplicaci\u0000n.",
+    "authors": [
+        {
+            "name": "elmer rodriguez",
+            "email": "elrodriguez2423@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4":{
+            "Elrod\\UserActivity\\": "src/"
+        }
+    }
+}
