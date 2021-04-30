@@ -1,7 +1,6 @@
 
 CREATE DATABASE `user_activity_log`
 
-
 CREATE TABLE `activity_log` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `component` text COLLATE utf8_spanish_ci DEFAULT NULL,

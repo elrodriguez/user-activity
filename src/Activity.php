@@ -28,7 +28,7 @@ class Activity {
         $this->ActivityLog->__set('model_name',$model);
     }
 
-    public function causedBy(object $data){
+    public function causedBy($data){
         $this->ActivityLog->__set('user_id',$data->id);
         $this->ActivityLog->__set('user',$data);
     }
@@ -53,7 +53,7 @@ class Activity {
         $this->ActivityLog->__set('response_code',$response_code);
         $this->ActivityLog->__set('response_message',$response_message);
     }
-    public function logType(array $type_activity){
+    public function logType($type_activity){
         $this->ActivityLog->__set('type_activity',$type_activity);
     }
 
