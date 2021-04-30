@@ -3,4 +3,10 @@ include __DIR__."/../vendor/autoload.php";
 
 $activity = new \Elrod\UserActivity\Activity();
 
-$activity->msgLog('registramos la base');
+$data = array(
+    'description' => 'Registro de prueba',
+    'component' => 'livewire'
+);
+
+$collection = $activity->ActivityLogCreate($data);
+
