@@ -4,5 +4,8 @@ include __DIR__."/../vendor/autoload.php";
 $activity = new \Elrod\UserActivity\Activity();
 
 
-$activity->log('Look, I logged something');
-$activity->save();
+$collection = $activity->getById(21);
+echo $collection->description;
+// foreach($collection as $item){
+//     echo $item->description.'<br>';
+// }

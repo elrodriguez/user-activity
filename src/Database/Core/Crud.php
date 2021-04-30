@@ -31,7 +31,7 @@ abstract class Crud extends Database{
     public function getById($id){
         try
         {
-            $stm = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=$id");
+            $stm = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=?");
             $stm->execute(array($id));
             return $stm->fetch(PDO::FETCH_OBJ);
         }

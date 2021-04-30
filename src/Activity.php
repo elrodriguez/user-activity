@@ -60,5 +60,13 @@ class Activity {
     public function save(){
         $this->ActivityLog->create();
     }
+
+    public function getAll(){
+        return $this->ActivityLog->getAll();
+    }
+
+    public function getById($id){
+        return $this->ActivityLog->getById($id);
+    }
 }
 
