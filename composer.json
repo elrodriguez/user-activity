@@ -1,6 +1,7 @@
 {
     "name": "elrod/user-activity",
     "description": "registra las actividades de los usuarios de su aplicaci\u0000n.",
+    "license": "MIT",
     "authors": [
         {
             "name": "elmer rodriguez",
