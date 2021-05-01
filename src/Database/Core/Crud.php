@@ -9,7 +9,7 @@ abstract class Crud extends Database{
 
     private $table;
     public $pdo;
-
+    
     public function __construct($table) {
         $this->table=(string) $table;
         $this->pdo=parent::conexion();

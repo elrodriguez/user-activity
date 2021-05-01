@@ -68,5 +68,64 @@ class Activity {
     public function getById($id){
         return $this->ActivityLog->getById($id);
     }
+
+    public function paginate($rows = 10){
+        $length = isset($_REQUEST['length'])?$_REQUEST['length']:$rows;
+        $this->ActivityLog->__set('NRO_REGISTROS',$length);
+        $page = isset($_REQUEST['draw'])?$_REQUEST['draw']:1;
+        $search_value = isset($_REQUEST['search'])?$_REQUEST['search']:null;
+        $this->ActivityLog->__set('page',$page);
+        $this->ActivityLog->__set('search_value',$search_value);
+        return $this->ActivityLog->__paginate();
+    }
+
+    public function id(){
+        return $this->ActivityLog->showColumn('id',true);
+    }
+    public function component(){
+        return $this->ActivityLog->showColumn('component',true);
+    }
+    public function data_json_old(){
+        return $this->ActivityLog->showColumn('data_json_old',true);
+    }
+    public function data_json_updated(){
+        return $this->ActivityLog->showColumn('data_json_updated',true);
+    }
+    public function table_name(){
+        return $this->ActivityLog->showColumn('table_name',true);
+    }
+    public function table_column_id(){
+        return $this->ActivityLog->showColumn('table_column_id',true);
+    }
+    public function model_name(){
+        return $this->ActivityLog->showColumn('model_name',true);
+    }
+    public function route(){
+        return $this->ActivityLog->showColumn('route',true);
+    }
+    public function description(){
+        return $this->ActivityLog->showColumn('description',true);
+    }
+    public function context(){
+        return $this->ActivityLog->showColumn('context',true);
+    }
+    public function response_code(){
+        return $this->ActivityLog->showColumn('response_code',true);
+    }
+    public function response_message(){
+        return $this->ActivityLog->showColumn('response_message',true);
+    }
+    public function type_activity(){
+        return $this->ActivityLog->showColumn('type_activity',true);
+    }
+    public function created_at(){
+        return $this->ActivityLog->showColumn('created_at',true);
+    }
+    public function user_id(){
+        return $this->ActivityLog->showColumn('user_id',true);
+    }
+    public function user(){
+        return $this->ActivityLog->showColumn('user',true);
+    }
 }
 
