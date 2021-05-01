@@ -72,8 +72,8 @@ class ActivityLog extends Crud {
             ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             $stm->execute(array(
                     $this->component,
-                    $this->data_json_old,
-                    $this->data_json_updated,
+                    json_encode($this->data_json_old),
+                    json_encode($this->data_json_updated),
                     $this->table_name,
                     $this->table_column_id,
                     $this->model_name,
@@ -85,7 +85,7 @@ class ActivityLog extends Crud {
                     $this->type_activity,
                     $this->created_at,
                     $this->user_id,
-                    $this->user
+                    json_encode($this->user)
                 )
             );
         }catch(PDOException $e){
