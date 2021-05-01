@@ -56,8 +56,8 @@ records the activities of your application users in its own database
         $activity = new Activity;
         $activity->modelOn(Product::class,$product->id);
         $activity->causedBy($user);
-        $activity->routeOn(route('establishments_create'));
-        $activity->componentOn('establishment-create-form');
+        $activity->routeOn(route('product_create'));
+        $activity->componentOn('product-create-form');
         $activity->dataOld($product);
         $activity->logType('create');
         $activity->log('Look, I logged something');
@@ -72,4 +72,8 @@ dataUpdated can be used when we make changes for example in:
     $activity->dataOld($data_old); //what was before
     $activity->dataUpdated($data_update); //the new changes
 
+methods for list and search by activity id
 
+$activity->getAll();
+
+$activity->getById($id)
