@@ -10,6 +10,7 @@ $activity->data_json_old();
 $activity->data_json_updated();
 $activity->table_column_id();
 $activity->user();
+$activity->created_at();
 
 ?>
 <div class="container">

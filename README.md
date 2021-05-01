@@ -77,3 +77,24 @@ methods for list and search by activity id
 $activity->getAll();
 
 $activity->getById($id)
+
+- Show Data
+![](https://scontent.ftru2-3.fna.fbcdn.net/v/t1.6435-9/180095379_993316557739596_3473670698319850867_n.png?_nc_cat=101&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeFRUTLY11Ko8SR5ddzyGJ3wkHVa5dXcri2QdVrl1dyuLRFFAkq9K7_s6eA3F3W4TEHdqt_EPY26U17_DryAM05n&_nc_ohc=581NZbp04NMAX_dIIdk&_nc_ht=scontent.ftru2-3.fna&oh=12395934ccd95aba8013af08de0bb3a5&oe=60B1CF41)
+
+Example:
+```php
+$activity = new \Elrod\UserActivity\Activity();
+$activity->model_name();
+$activity->description();
+$activity->data_json_old();
+$activity->data_json_updated();
+$activity->table_column_id();
+$activity->user();
+$activity->created_at();
+
+?>
+<div class="container">
+<h1>Lista de Actividades de usuario</h1>
+    <?php echo $activity->paginate(10); ?>
+</div>
+```
