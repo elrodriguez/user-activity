@@ -127,5 +127,8 @@ class Activity {
     public function user(){
         return $this->ActivityLog->showColumn('user',true);
     }
+    public function getByUserAndDate($user_id,$start,$end){
+        return $this->ActivityLog->getByUser($user_id,$start,$end);
+    }
 }
 

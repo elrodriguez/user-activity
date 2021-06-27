@@ -27,7 +27,18 @@ abstract class Crud extends Database{
             die($e->getMessage());
         }
     }
-
+    public function getByUser($user_id,$start,$end){
+        try
+        {
+            $stm = $this->pdo->prepare("SELECT * FROM $this->table WHERE user_id=$user_id AND (DATE(created_at) >= $start AND DATE(created_at) <= $end)");
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ);
+        }
+        catch (PDOException $e)
+        {
+            die($e->getMessage());
+        }
+    }
     public function getById($id){
         try
         {
