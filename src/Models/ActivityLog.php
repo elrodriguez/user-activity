@@ -25,6 +25,7 @@ class ActivityLog extends Crud {
     private $user;
     const TABLE = 'activity_log';
     public $pdo;
+    public $app_name;
 
     private $search_value;
     private $search_column;
@@ -39,6 +40,7 @@ class ActivityLog extends Crud {
     {
         parent::__construct(self::TABLE);
         $this->pdo=parent::conexion();
+        $this->app_name = tenant('id');
     }
 
     public function __set($name,$value){
@@ -53,8 +55,11 @@ class ActivityLog extends Crud {
     }
 
     public function create(){
+        
         try{
-        $stm=$this->pdo->prepare("INSERT INTO ".self::TABLE." (component,
+            $stm=$this->pdo->prepare("INSERT INTO ".self::TABLE." (
+                tenant_id,
+                component,
                 data_json_old,
                 data_json_updated,
                 table_name,
@@ -69,8 +74,9 @@ class ActivityLog extends Crud {
                 created_at,
                 user_id,
                 user
-            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             $stm->execute(array(
+                    $this->app_name,
                     $this->component,
                     json_encode($this->data_json_old),
                     json_encode($this->data_json_updated),
@@ -89,7 +95,8 @@ class ActivityLog extends Crud {
                 )
             );
         }catch(PDOException $e){
-            echo $e->getMessage();
+            //echo $e->getMessage();
+            dd($e->getMessage());
         }
     
     }

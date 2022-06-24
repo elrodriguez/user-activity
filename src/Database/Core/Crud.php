@@ -9,16 +9,18 @@ abstract class Crud extends Database{
 
     private $table;
     public $pdo;
-    
+    public $app_name;
+
     public function __construct($table) {
         $this->table=(string) $table;
         $this->pdo=parent::conexion();
+        $this->app_name = tenant('id');
     }
 
     public function getAll(){
         try
         {
-            $stm = $this->pdo->prepare("SELECT * FROM $this->table");
+            $stm = $this->pdo->prepare("SELECT * FROM $this->table WHERE tenant_id = $this->app_name");
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_OBJ);
         }
@@ -30,8 +32,8 @@ abstract class Crud extends Database{
     public function getByUser($user_id,$start,$end){
         try
         {
-            $stm = $this->pdo->prepare("SELECT * FROM $this->table WHERE user_id=? AND (DATE(created_at) >= ? AND DATE(created_at) <= ?)");
-            $stm->execute(array($user_id,$start,$end));
+            $stm = $this->pdo->prepare("SELECT * FROM $this->table WHERE tenant_id = $this->app_name AND user_id=$user_id AND (DATE(created_at) >= $start AND DATE(created_at) <= $end)");
+            $stm->execute();
             return $stm->fetchAll(PDO::FETCH_OBJ);
         }
         catch (PDOException $e)

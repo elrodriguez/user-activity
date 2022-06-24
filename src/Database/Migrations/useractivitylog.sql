@@ -3,6 +3,7 @@ CREATE DATABASE `user_activity_log`
 
 CREATE TABLE `activity_log` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `tenant_id` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   `component` text COLLATE utf8_spanish_ci DEFAULT NULL,
   `data_json_old` longtext COLLATE utf8_spanish_ci DEFAULT NULL,
   `data_json_updated` longtext COLLATE utf8_spanish_ci DEFAULT NULL,
